@@ -1,22 +1,8 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { getCollection } from "astro:content";
+import { getSortedPosts, formatDate, postUrl } from "../../lib/devlog";
 
-const posts = await getCollection("devlog");
-
-// 최신 글이 위로 오도록 정렬
-posts.sort((a, b) => {
-  const da = a.data.date instanceof Date ? a.data.date.getTime() : new Date(String(a.data.date ?? 0)).getTime();
-  const db = b.data.date instanceof Date ? b.data.date.getTime() : new Date(String(b.data.date ?? 0)).getTime();
-  return db - da;
-});
-
-const fmt = (d: unknown) => {
-  if (!d) return "";
-  const date = d instanceof Date ? d : new Date(String(d));
-  if (Number.isNaN(date.getTime())) return "";
-  return date.toISOString().slice(0, 10); // YYYY-MM-DD
-};
+const posts = await getSortedPosts();
 ---
 
 <BaseLayout title="Dev Log">
@@ -30,7 +16,7 @@ const fmt = (d: unknown) => {
       {posts.map((post) => (
         <article class="card">
           <h3>
-            <a href={`/devlog/${post.slug}/`}>{post.data.title}</a>
+            <a href={postUrl(post)}>{post.data.title}</a>
           </h3>
 
           {post.data.description && (
@@ -39,19 +25,19 @@ const fmt = (d: unknown) => {
 
           {(post.data.date || (post.data.tags && post.data.tags.length > 0)) && (
             <div class="post-meta">
-              {post.data.date && <span class="post-date">{fmt(post.data.date)}</span>}
+              {post.data.date && <span class="post-date">{formatDate(post.data.date)}</span>}
 
               {post.data.tags && post.data.tags.length > 0 && (
                 <ul class="post-tags" aria-label="태그">
-                   {post.data.tags.slice(0, 5).map((tag) => (
-                    <li class="post-tag" key={`${post.slug}-${tag}`}>#{tag}</li>
+                  {post.data.tags.slice(0, 5).map((tag) => (
+                    <li class="post-tag">#{tag}</li>
                   ))}
 
-                    {post.data.tags.length > 5 && (
-                      <li class="post-tag post-tag-more">
-                        +{post.data.tags.length - 5}
-                      </li>
-                    )}
+                  {post.data.tags.length > 5 && (
+                    <li class="post-tag post-tag-more">
+                      +{post.data.tags.length - 5}
+                    </li>
+                  )}
                 </ul>
               )}
             </div>

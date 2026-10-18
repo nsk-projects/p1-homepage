@@ -1,74 +1,56 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { getCollection } from "astro:content";
+import { render } from "astro:content";
+import { getSortedPosts, formatDate, type Post } from "../../lib/devlog";
 
 export async function getStaticPaths() {
-  const posts = await getCollection("devlog");
+  const posts = await getSortedPosts();
   return posts.map((post) => ({
-    params: { slug: post.slug },
+    params: { slug: post.id },
+    props: { post },
   }));
 }
 
-// [...slug]는 경우에 따라 배열로 올 수 있어서 안전하게 처리
-const param = Astro.params.slug;
-const slug = Array.isArray(param) ? param.join("/") : param;
-
-const posts = await getCollection("devlog");
-const post = posts.find((p) => p.slug === slug);
-
-if (!post) {
-  return new Response("Not found", { status: 404 });
-}
-
-const fmt = (d: unknown) => {
-  if (!d) return "";
-  const date = d instanceof Date ? d : new Date(String(d));
-  if (Number.isNaN(date.getTime())) return "";
-  return date.toISOString().slice(0, 10);
-};
-
-const { Content } = await post.render();
+const { post } = Astro.props as { post: Post };
+const { Content } = await render(post);
 ---
 
 <BaseLayout title={post.data.title}>
-    <div class="page">
-        <header style="margin-bottom: 1.5rem;">
-          <nav class="devlog-topnav" aria-label="Dev Log navigation">
-            <a class="devlog-back" href="/devlog/">← Dev Log 목록</a>
-          </nav>
+  <div class="page">
+    <header style="margin-bottom: 1.5rem;">
+      <nav class="devlog-topnav" aria-label="Dev Log navigation">
+        <a class="devlog-back" href="/devlog/">← Dev Log 목록</a>
+      </nav>
 
-          <h1 style="margin: 0 0 0.5rem;">{post.data.title}</h1>
+      <h1 style="margin: 0 0 0.5rem;">{post.data.title}</h1>
 
-          {(post.data.date || (post.data.tags && post.data.tags.length > 0)) && (
-            <div class="post-meta">
-              {post.data.date && (
-                <span class="post-date">{fmt(post.data.date)}</span>
-              )}
-
-              {post.data.tags && post.data.tags.length > 0 && (
-                <ul class="post-tags" aria-label="태그">
-                  {post.data.tags.map((tag) => (
-                    <li class="post-tag">#{tag}</li>
-                  ))}
-                </ul>
-              )}
-            </div>
+      {(post.data.date || (post.data.tags && post.data.tags.length > 0)) && (
+        <div class="post-meta">
+          {post.data.date && (
+            <span class="post-date">{formatDate(post.data.date)}</span>
           )}
 
-
-          {post.data.description && (
-            <p style="margin: 0.75rem 0 0; color:#555;">
-              {post.data.description}
-            </p>
+          {post.data.tags && post.data.tags.length > 0 && (
+            <ul class="post-tags" aria-label="태그">
+              {post.data.tags.map((tag) => (
+                <li class="post-tag">#{tag}</li>
+              ))}
+            </ul>
           )}
-        </header>
+        </div>
+      )}
 
+      {post.data.description && (
+        <p style="margin: 0.75rem 0 0; color:#555;">
+          {post.data.description}
+        </p>
+      )}
+    </header>
 
-        <article>
-          <Content />
-        </article>
+    <article>
+      <Content />
+    </article>
 
-        <hr style="margin: 3rem 0; border:0; border-top:1px solid #eee;" />
-
-    </div>
+    <hr style="margin: 3rem 0; border:0; border-top:1px solid #eee;" />
+  </div>
 </BaseLayout>
