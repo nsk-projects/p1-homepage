@@ -1,0 +1,10 @@
+{
+  "redirects": [
+    { "source": "/devlog/2026-03-14-decide-java-semester-focusmd", "destination": "/devlog/2026-03-14-decide-java-semester-focus/", "permanent": true },
+    { "source": "/devlog/2026-03-14-decide-java-semester-focusmd/", "destination": "/devlog/2026-03-14-decide-java-semester-focus/", "permanent": true },
+    { "source": "/devlog/2026-06-20-decide-after-exam-study-directionmd", "destination": "/devlog/2026-06-20-decide-after-exam-study-direction/", "permanent": true },
+    { "source": "/devlog/2026-06-20-decide-after-exam-study-directionmd/", "destination": "/devlog/2026-06-20-decide-after-exam-study-direction/", "permanent": true },
+    { "source": "/devlog/2026-07-18-build-heron-automata-sql-pandasmd", "destination": "/devlog/2026-07-18-build-heron-automata-sql-pandas/", "permanent": true },
+    { "source": "/devlog/2026-07-18-build-heron-automata-sql-pandasmd/", "destination": "/devlog/2026-07-18-build-heron-automata-sql-pandas/", "permanent": true }
+  ]
+}
