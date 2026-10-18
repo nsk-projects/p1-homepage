@@ -1,10 +1,9 @@
 ---
-
 title: "[Build] raw 데이터를 SQL과 판다스로 구조화하기 시작한다"
 date: 2026-07-18
 state: build
 tags: [build, sql, pandas, data, automation, ai, project]
----------------------------------------------------------
+---
 
 SQL 공부를
 1차로 마무리했다.

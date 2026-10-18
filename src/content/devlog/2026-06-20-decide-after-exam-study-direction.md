@@ -1,10 +1,9 @@
 ---
-
 title: "[Decide] 시험 이후 공부 방향을 다시 정리했다"
 date: 2026-06-20
 state: decide
 tags: [decide, study, java, sql, university, exam, direction]
--------------------------------------------------------------
+---
 
 1학기 기말시험이 끝났다.
 

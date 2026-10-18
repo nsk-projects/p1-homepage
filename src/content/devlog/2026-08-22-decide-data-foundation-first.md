@@ -1,10 +1,9 @@
 ---
-
 title: "[Decide] 데이터베이스보다 먼저 코드 체계부터 맞추기로 했다"
 date: 2026-08-22
 state: decide
 tags: [decide, data, database, sql, pandas, automation, master-data]
---------------------------------------------------------------------
+---
 
 개인 프로젝트
 **헤론 오토마타**는 잠시 뒤로 미뤘다.
