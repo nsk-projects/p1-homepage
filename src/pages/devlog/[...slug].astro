@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { render } from "astro:content";
-import { getSortedPosts, formatDate, type Post } from "../../lib/devlog";
+import { getSortedPosts, formatDate, excerpt, type Post } from "../../lib/devlog";
 
 export async function getStaticPaths() {
   const posts = await getSortedPosts();
@@ -15,7 +15,7 @@ const { post } = Astro.props as { post: Post };
 const { Content } = await render(post);
 ---
 
-<BaseLayout title={post.data.title}>
+<BaseLayout title={post.data.title} description={excerpt(post)} ogType="article">
   <div class="page">
     <header style="margin-bottom: 1.5rem;">
       <nav class="devlog-topnav" aria-label="Dev Log navigation">

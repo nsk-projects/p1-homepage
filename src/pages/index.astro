@@ -1,5 +1,9 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { getSortedPosts, formatDate, excerpt, postUrl } from "../lib/devlog";
+
+// 최신 글 3편. 새 글을 올리면 자동으로 바뀐다.
+const latestPosts = (await getSortedPosts()).slice(0, 3);
 ---
 
 <BaseLayout title="NSK">
@@ -11,16 +15,19 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 	<section>
 		<h2>Latest Dev Log</h2>
 		<div class="card-list">
-			<div class="card">
-				<h3>첫 번째 개발 로그</h3>
-				<p>마크다운으로 작성된 첫 번째 글, 곧 자동으로 연결 될 예정</p>
-			</div>
-
-			<div class="card">
-				<h3>홈페이지 리뉴얼 프로젝트</h3>
-				<p>Astro와 Vercel을 사용하여 나만의 공간을 만드는 과정</p>
-			</div>
+			{latestPosts.map((post) => (
+				<article class="card">
+					<h3><a href={postUrl(post)}>{post.data.title}</a></h3>
+					<p>{excerpt(post, 80)}</p>
+					{post.data.date && (
+						<div class="post-meta">
+							<span class="post-date">{formatDate(post.data.date)}</span>
+						</div>
+					)}
+				</article>
+			))}
 		</div>
+		<p><a href="/devlog/">전체 글 보기 →</a></p>
 	</section>
 
 	<section>
