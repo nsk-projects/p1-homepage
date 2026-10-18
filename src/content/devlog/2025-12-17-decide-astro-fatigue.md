@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/BaseLayout.astro
 title: "[Decide] Astro를 선택한 이유: 지속가능성과 피로도"
 date: 2025-12-17
 state: decide

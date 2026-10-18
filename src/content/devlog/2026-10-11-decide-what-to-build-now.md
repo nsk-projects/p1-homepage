@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/BaseLayout.astro
 title: "[Decide] 만들 수 있는 것과 지금 만들어야 하는 것은 달랐다"
 date: 2026-10-11
 state: decide

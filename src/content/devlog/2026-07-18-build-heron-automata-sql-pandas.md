@@ -1,6 +1,5 @@
 ---
 
-layout: ../../layouts/BaseLayout.astro
 title: "[Build] raw 데이터를 SQL과 판다스로 구조화하기 시작한다"
 date: 2026-07-18
 state: build

@@ -1,6 +1,5 @@
 ---
 
-layout: ../../layouts/BaseLayout.astro
 title: "[Decide] 데이터베이스보다 먼저 코드 체계부터 맞추기로 했다"
 date: 2026-08-22
 state: decide

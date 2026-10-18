@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/BaseLayout.astro
 title: "[Build] 이제 시험기간 모드로 들어간다"
 date: 2026-05-23
 state: build

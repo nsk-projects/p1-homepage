@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/BaseLayout.astro
 title: "[Build] 3월에 세운 계획을 지금도 계속 이어가고 있다"
 date: 2026-04-07
 state: build

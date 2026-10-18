@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/BaseLayout.astro
 title: "[Decide] 당연하다고 생각했던 것들을 다시 정의하기 시작했다"
 date: 2026-03-27
 state: decide

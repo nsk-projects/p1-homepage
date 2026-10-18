@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/BaseLayout.astro
 title: "[Decide] 자료구조와 알고리즘 앞에서 C언어를 다시 선택했다"
 date: 2026-01-04
 state: decide

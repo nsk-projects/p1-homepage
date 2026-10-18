@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/BaseLayout.astro
 title: "[Build] GPT와 Claude를 토론시키는 방법을 만들었다"
 date: 2026-09-21
 state: build

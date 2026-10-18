@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/BaseLayout.astro
 title: "[Decide] Dev Log를 상태로 기록하기로 한 판단"
 date: 2025-12-18
 state: decide

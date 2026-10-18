@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/BaseLayout.astro
 title: "[Decide] 목표를 세우는 것과 전략을 세우는 것은 다르다"
 date: 2026-04-25
 state: decide

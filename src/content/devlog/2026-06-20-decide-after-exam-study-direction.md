@@ -1,6 +1,5 @@
 ---
 
-layout: ../../layouts/BaseLayout.astro
 title: "[Decide] 시험 이후 공부 방향을 다시 정리했다"
 date: 2026-06-20
 state: decide

@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/BaseLayout.astro
 title: "[Build] 학교 Java 수업을 끝까지 제대로 따라갔다"
 date: 2026-05-09
 state: build

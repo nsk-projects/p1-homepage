@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/BaseLayout.astro
 title: "[Build] Dev Log가 글처럼 보이게 만들기 시작했다"
 date: 2025-12-20
 state: build

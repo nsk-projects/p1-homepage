@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/BaseLayout.astro
 title: "[Decide] 이번 학기는 자바에 집중하기로 했다"
 date: 2026-03-14
 state: decide

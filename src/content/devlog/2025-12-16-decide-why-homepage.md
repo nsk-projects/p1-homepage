@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/BaseLayout.astro
 title: "[Decide] 첫 번째 프로젝트로 개인 홈페이지를 선택한 이유"
 date: 2025-12-16
 state: decide

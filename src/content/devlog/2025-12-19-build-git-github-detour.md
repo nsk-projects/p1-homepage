@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/BaseLayout.astro
 title: "[Build] 프로젝트 하다 Git·GitHub를 다시 공부하고 돌아왔다"
 date: 2025-12-19
 state: build
