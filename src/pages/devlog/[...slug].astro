@@ -31,7 +31,7 @@ const { Content } = await post.render();
 ---
 
 <BaseLayout title={post.data.title}>
-    <main class="content">
+    <div class="page">
         <header style="margin-bottom: 1.5rem;">
           <nav class="devlog-topnav" aria-label="Dev Log navigation">
             <a class="devlog-back" href="/devlog/">← Dev Log 목록</a>
@@ -70,5 +70,5 @@ const { Content } = await post.render();
 
         <hr style="margin: 3rem 0; border:0; border-top:1px solid #eee;" />
 
-    </main>
+    </div>
 </BaseLayout>
